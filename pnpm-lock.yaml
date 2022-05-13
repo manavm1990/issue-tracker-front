@@ -16,6 +16,7 @@ specifiers:
   eslint-plugin-react-hooks: ^4.5.0
   eslint-plugin-testing-library: ^5.5.0
   happy-dom: latest
+  ky: ^0.30.0
   postcss: ^8.4.13
   prettier: 2.6.2
   react: ^18.0.0
@@ -28,6 +29,7 @@ specifiers:
   vitest: ^0.12.4
 
 dependencies:
+  ky: 0.30.0
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
   react-query: 4.0.0-beta.10_ef5jwxihqo6n7gxfmzogljlgcm
@@ -2140,6 +2142,11 @@ packages:
       array-includes: 3.1.5
       object.assign: 4.1.2
     dev: true
+
+  /ky/0.30.0:
+    resolution: {integrity: sha512-X/u76z4JtDVq10u1JA5UQfatPxgPaVDMYTrgHyiTpGN2z4TMEJkIHsoSBBSg9SWZEIXTKsi9kHgiQ9o3Y/4yog==}
+    engines: {node: '>=12'}
+    dev: false
 
   /language-subtag-registry/0.3.21:
     resolution: {integrity: sha512-L0IqwlIXjilBVVYKFT37X9Ih11Um5NEl9cbJIuU/SwP/zEEAbBPOnEeeuxVMf45ydWQRDQN3Nqc96OgbH1K+Pg==}
