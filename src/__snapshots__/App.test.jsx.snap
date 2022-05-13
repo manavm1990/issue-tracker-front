@@ -1,0 +1,9 @@
+// Vitest Snapshot v1
+
+exports[`renders correctly 1`] = `
+<h1
+  className="font-black my-3 text-8xl text-center"
+>
+  Hello World
+</h1>
+`;
