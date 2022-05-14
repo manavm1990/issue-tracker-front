@@ -8,7 +8,7 @@ export default function App() {
 
   const { data, isLoading, isError } = userQuery;
 
-  function getChildren() {
+  const getChildren = () => {
     if (isLoading) {
       return <p className="text-orange-500">Loading...</p>;
     }
@@ -18,7 +18,7 @@ export default function App() {
     }
 
     return <p className="text-bold">{data[0].title}</p>;
-  }
+  };
 
   return (
       <div className="bg-yellow h-[5px]" />
