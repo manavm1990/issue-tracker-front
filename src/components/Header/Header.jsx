@@ -1,9 +1,10 @@
 import { Typography } from "@mui/material";
+import PropTypes from "prop-types";
 import DarkModeToggle from "../DarkModeToggle";
 
 const label = { inputProps: { "aria-label": "Dark mode toggle" } };
 
-export default function Header() {
+export default function Header({ changeHandler }) {
   return (
     <header>
       <Typography
@@ -15,7 +16,11 @@ export default function Header() {
       >
         Issue Tracker
       </Typography>
-      <DarkModeToggle sx={{ m: 1 }} defaultChecked {...label} />
+      <DarkModeToggle defaultChecked {...label} onChange={changeHandler} />
     </header>
   );
 }
+
+Header.propTypes = {
+  changeHandler: PropTypes.func.isRequired,
+};
