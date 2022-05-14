@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { useQuery } from "react-query";
 import apiService from "./api.service";
 import Main from "./components/Main";
@@ -19,5 +20,12 @@ export default function App() {
     return <p className="text-bold">{data[0].title}</p>;
   }
 
-  return <Main>{getChildren()}</Main>;
+  return (
+    <>
+      <Typography variant="h3" component="h1" textAlign="center">
+        Issue Tracker
+      </Typography>
+      <Main>{getChildren()}</Main>;
+    </>
+  );
 }
