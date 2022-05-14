@@ -28,5 +28,6 @@ module.exports = {
         peerDependencies: false,
       },
     ],
+    "no-unused-vars": ["warn", { destructuredArrayIgnorePattern: "^_" }],
   },
 };
