@@ -21,7 +21,7 @@ export default function App() {
   }
 
   return (
-    <>
+      <div className="bg-yellow h-[5px]" />
       <Header />
       <Main>{getChildren()}</Main>;
     </>
