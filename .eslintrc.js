@@ -29,5 +29,6 @@ module.exports = {
       },
     ],
     "no-unused-vars": ["warn", { destructuredArrayIgnorePattern: "^_" }],
+    "react/jsx-props-no-spreading": [2, { exceptions: ["DarkModeToggle"] }],
   },
 };
