@@ -1,7 +1,7 @@
-import { Typography } from "@mui/material";
 import { useQuery } from "react-query";
 import apiService from "./api.service";
-import Main from "./components/Main";
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
 
 export default function App() {
   const userQuery = useQuery(["rails"], () => apiService.getIssues());
@@ -22,9 +22,7 @@ export default function App() {
 
   return (
     <>
-      <Typography variant="h3" component="h1" textAlign="center">
-        Issue Tracker
-      </Typography>
+      <Header />
       <Main>{getChildren()}</Main>;
     </>
   );
