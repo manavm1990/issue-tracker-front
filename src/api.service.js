@@ -1,9 +1,9 @@
 import ky from "ky";
 
-const BASE_URL = "https://api.github.com/users/";
+const BASE_URL = "https://api.github.com/";
 
 export default {
-  show(username = "manavm1990") {
-    return ky.get(BASE_URL + username).json();
+  getIssues() {
+    return ky.get(`${BASE_URL}repos/rails/rails/issues`).json();
   },
 };

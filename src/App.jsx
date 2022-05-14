@@ -3,7 +3,7 @@ import apiService from "./api.service";
 import Main from "./components/Main";
 
 export default function App() {
-  const userQuery = useQuery(["manavm1990"], () => apiService.show());
+  const userQuery = useQuery(["rails"], () => apiService.getIssues());
 
   const { data, isLoading, isError } = userQuery;
 
@@ -16,7 +16,7 @@ export default function App() {
       return <p className="text-red-500">Error</p>;
     }
 
-    return <p className="text-bold">{data?.login}</p>;
+    return <p className="text-bold">{data[0].title}</p>;
   }
 
   return <Main>{getChildren()}</Main>;
