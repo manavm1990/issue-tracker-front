@@ -1,2 +1,8 @@
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  body {
+    transition: all 0.25s ease-in-out;
+  }
+}
