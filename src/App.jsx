@@ -8,10 +8,15 @@ import apiService from "./api.service";
 import Header from "./components/Header/Header";
 import IssuesList from "./components/IssuesList/IssuesList";
 
+const OWNER = "rails";
+const REPO = "rails";
+
 export default function App() {
   const [darkMode, setDarkMode] = React.useState(true);
 
-  const userQuery = useQuery(["rails"], () => apiService.getIssues());
+  const userQuery = useQuery(["issues", OWNER, REPO], () =>
+    apiService.getIssues()
+  );
 
   const darkTheme = createTheme({
     palette: {
