@@ -1,9 +1,12 @@
 import IssueType from "@/types/Issue";
 import { ChatBubble, CheckCircle, ErrorOutline } from "@mui/icons-material";
 import { ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import getAgo from "@/getAgo";
 
 export default function Issue({ issue }) {
-  const secondary = `#${issue.number} opened ${issue.created_at}`;
+  const secondary = `#${issue.number} opened ${getAgo(issue.created_at)} by ${
+    issue.user.login
+  }`;
 
   return (
     <ListItem>
