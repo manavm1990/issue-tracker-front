@@ -31,4 +31,14 @@ module.exports = {
     "no-unused-vars": ["warn", { destructuredArrayIgnorePattern: "^_" }],
     "react/jsx-props-no-spreading": [2, { exceptions: ["DarkModeToggle"] }],
   },
+  settings: {
+    "import/resolver": {
+      "eslint-import-resolver-custom-alias": {
+        alias: {
+          "@": "./src",
+        },
+        extensions: [".js", ".jsx"],
+      },
+    },
+  },
 };
