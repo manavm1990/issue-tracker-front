@@ -2,11 +2,7 @@ import { Typography } from "@mui/material";
 import PropTypes from "prop-types";
 
 export default function Main({ children }) {
-  return (
-    <main className="flex h-screen justify-center items-center">
-      {children}
-    </main>
-  );
+  return <main className="container mx-auto">{children}</main>;
 }
 
 Main.propTypes = {
