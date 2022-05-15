@@ -15,7 +15,7 @@ export default function Header({ changeHandler }) {
       justifyContent="center"
     >
       <Typography
-        variant="h2"
+        variant="h3"
         component="h1"
         fontWeight="bold"
         mt={16}

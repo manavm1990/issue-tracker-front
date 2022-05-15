@@ -1,11 +1,12 @@
-import { CssBaseline } from "@mui/material";
+import { CssBaseline, Typography } from "@mui/material";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React from "react";
 import { useQuery } from "react-query";
 import apiService from "./api.service";
 import Header from "./components/Header/Header";
 import IssuesList from "./components/IssuesList/IssuesList";
-import Main from "./components/Main/Main";
 
 export default function App() {
   const [darkMode, setDarkMode] = React.useState(true);
@@ -29,11 +30,25 @@ export default function App() {
       <CssBaseline />
       <div className="bg-yellow h-[5px]" />
       <Header changeHandler={handleChange} />
-      <Main>
+      <Container maxWidth="md" component="main">
         {isLoading && <p className="text-orange-500">Loading...</p>}
         {isError && <p className="text-red-500">Error</p>}
-        {data && <IssuesList issues={data} />}
-      </Main>
+        {data && (
+          <Grid container spacing={2}>
+            <Grid item xs={8} component="section">
+              <Typography
+                variant="h4"
+                component="h2"
+                fontWeight="bold"
+                className="text-yellow-500"
+              >
+                Issues List{" "}
+              </Typography>
+              <IssuesList issues={data} />
+            </Grid>
+          </Grid>
+        )}
+      </Container>
     </ThemeProvider>
   );
 }
