@@ -4,6 +4,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import apiService from "./api.service";
 import Header from "./components/Header/Header";
+import IssuesList from "./components/IssuesList/IssuesList";
 import Main from "./components/Main/Main";
 
 export default function App() {
@@ -19,18 +20,6 @@ export default function App() {
 
   const { data, isLoading, isError } = userQuery;
 
-  const getChildren = () => {
-    if (isLoading) {
-      return <p className="text-orange-500">Loading...</p>;
-    }
-
-    if (isError) {
-      return <p className="text-red-500">Error</p>;
-    }
-
-    return <p className="text-bold">{data[0].title}</p>;
-  };
-
   const handleChange = () => {
     setDarkMode((prev) => !prev);
   };
@@ -40,7 +29,11 @@ export default function App() {
       <CssBaseline />
       <div className="bg-yellow h-[5px]" />
       <Header changeHandler={handleChange} />
-      <Main>{getChildren()}</Main>
+      <Main>
+        {isLoading && <p className="text-orange-500">Loading...</p>}
+        {isError && <p className="text-red-500">Error</p>}
+        {data && <IssuesList issues={data} />}
+      </Main>
     </ThemeProvider>
   );
 }
