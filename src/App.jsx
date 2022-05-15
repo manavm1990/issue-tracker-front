@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React from "react";
 import { useQuery } from "react-query";
 import apiService from "./api.service";
+import Error from "./components/Error";
 import Header from "./components/Header/Header";
 import IssuesList from "./components/IssuesList/IssuesList";
 
@@ -36,7 +37,8 @@ export default function App() {
       {isLoading ? <LinearProgress /> : <div className="bg-yellow h-1" />}
       <Header changeHandler={handleChange} />
       <Container maxWidth="md" component="main">
-        {isError && <p className="text-red-500">Error</p>}
+        {isError && <Error error={userQuery.error.message} />}
+
         {data && (
           <Grid container spacing={2}>
             <Grid item xs={8} component="section">
