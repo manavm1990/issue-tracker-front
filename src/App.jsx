@@ -1,4 +1,4 @@
-import { CssBaseline, Typography } from "@mui/material";
+import { CssBaseline, LinearProgress, Typography } from "@mui/material";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -33,10 +33,9 @@ export default function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <div className="bg-yellow h-[5px]" />
+      {isLoading ? <LinearProgress /> : <div className="bg-yellow h-1" />}
       <Header changeHandler={handleChange} />
       <Container maxWidth="md" component="main">
-        {isLoading && <p className="text-orange-500">Loading...</p>}
         {isError && <p className="text-red-500">Error</p>}
         {data && (
           <Grid container spacing={2}>
