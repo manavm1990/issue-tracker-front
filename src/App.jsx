@@ -15,9 +15,7 @@ const REPO = "rails";
 export default function App() {
   const [darkMode, setDarkMode] = React.useState(true);
 
-  const userQuery = useQuery(["issues", OWNER, REPO], () =>
-    apiService.getIssues()
-  );
+  const userQuery = useQuery(["issues", OWNER, REPO], apiService.getIssues);
 
   const darkTheme = createTheme({
     palette: {
