@@ -3,11 +3,10 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React from "react";
-import { useQuery } from "react-query";
-import apiService from "./api.service";
 import Error from "./components/Error";
 import Header from "./components/Header/Header";
 import IssuesList from "./components/IssuesList/IssuesList";
+import useIssuesQuery from "./utils/useIssuesQuery";
 
 const OWNER = "rails";
 const REPO = "rails";
@@ -15,7 +14,11 @@ const REPO = "rails";
 export default function App() {
   const [darkMode, setDarkMode] = React.useState(true);
 
-  const userQuery = useQuery(["issues", OWNER, REPO], apiService.getIssues);
+  const issuesQuery = useIssuesQuery({
+    owner: OWNER,
+    repo: REPO,
+    filters: { state: "all" },
+  });
 
   const darkTheme = createTheme({
     palette: {
@@ -23,7 +26,7 @@ export default function App() {
     },
   });
 
-  const { data, isLoading, isError } = userQuery;
+  const { data, isLoading, isError } = issuesQuery;
 
   const handleChange = () => {
     setDarkMode((prev) => !prev);
@@ -35,7 +38,7 @@ export default function App() {
       {isLoading ? <LinearProgress /> : <div className="bg-yellow h-1" />}
       <Header changeHandler={handleChange} />
       <Container maxWidth="md" component="main">
-        {isError && <Error error={userQuery.error.message} />}
+        {isError && <Error error={issuesQuery.error.message} />}
 
         {data && (
           <Grid container spacing={2}>
