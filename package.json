@@ -18,7 +18,8 @@
     "ky": "^0.30.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-query": "4.0.0-beta.10"
+    "react-query": "4.0.0-beta.10",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@babel/core": ">=7.0.0 <8.0.0",
