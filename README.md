@@ -1,1 +1,1 @@
-# Rails Issue Tracker
+# Issue Tracker
