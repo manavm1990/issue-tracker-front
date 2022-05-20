@@ -1,27 +1,34 @@
 import { Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 
 export default function Home() {
   return (
     <>
-      <Typography>
+      <Typography className="my-4 text-center">
         Enter a GitHub username and a repo name that belongs to that particular
         GitHub user.
       </Typography>
-      <form>
+      <Box component="form" className="flex justify-center gap-8">
         <TextField
-          id="outlined-basic"
+          id="owner"
           label="Owner"
           variant="outlined"
-          defaultValue="@manavm1990"
+          placeholder="@manavm1990"
+          size="small"
         />
         <TextField
-          id="outlined-basic"
+          id="repo"
           label="Repo"
           variant="outlined"
-          defaultValue="issue-tracker"
+          placeholder="issue-tracker"
+          size="small"
         />
-      </form>
+        <Button variant="contained" size="small" className="rounded-full">
+          Go!
+        </Button>
+      </Box>
     </>
   );
 }
