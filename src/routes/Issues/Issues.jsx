@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import LinearProgress from "@mui/material/LinearProgress";
 import Error from "../../components/Error";
 import IssuesList from "../../components/IssuesList/IssuesList";
 import useIssuesQuery from "../../utils/useIssuesQuery";
@@ -15,11 +16,17 @@ export default function Issues() {
   });
 
   // TODO: Deal with isLoading
-  const { data, isError } = issuesQuery;
+  const { data, isLoading, isError } = issuesQuery;
 
   return (
     <>
       {isError && <Error error={issuesQuery.error.message} />}
+      {isLoading ? (
+        <LinearProgress className="fixed inset-0 w-screen" />
+      ) : (
+        <div className="fixed inset-0 h-1 w-screen bg-yellow" />
+      )}
+
       {data && (
         <Grid container spacing={2}>
           <Grid item xs={8} component="section">
