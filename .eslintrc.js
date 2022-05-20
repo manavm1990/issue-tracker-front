@@ -20,6 +20,7 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {
+    "global-require": "off",
     "import/no-extraneous-dependencies": [
       "error",
       {
