@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: [
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "airbnb",
     "plugin:react/jsx-runtime",
     "plugin:testing-library/react",
