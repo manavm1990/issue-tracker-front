@@ -1,17 +1,16 @@
 import { Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import LinearProgress from "@mui/material/LinearProgress";
+import { useParams } from "react-router-dom";
 import Error from "../../components/Error";
 import IssuesList from "../../components/IssuesList/IssuesList";
 import useIssuesQuery from "../../utils/useIssuesQuery";
 
-const OWNER = "rails";
-const REPO = "rails";
-
 export default function Issues() {
+  const { owner, repo } = useParams();
   const issuesQuery = useIssuesQuery({
-    owner: OWNER,
-    repo: REPO,
+    owner,
+    repo,
     filters: { state: "all" },
   });
 

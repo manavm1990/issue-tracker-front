@@ -28,7 +28,7 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/issues" element={<Issues />} />
+            <Route path="/issues/:owner/:repo" element={<Issues />} />
           </Routes>
         </BrowserRouter>
       </Container>
