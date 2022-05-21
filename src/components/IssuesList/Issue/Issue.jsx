@@ -23,7 +23,7 @@ export default function Issue({ issue }) {
         {issueColor && (
           //  TODO: Investigate color display inconsistencies
           <ListItemText
-            className={`min-w-min rounded-full border border-solid px-2 py-1 text-center border-[#${issueColor}] text-[#${issueColor}]`}
+            className={`min-w-min rounded-full border border-solid bg-[#${issueColor}]/50 px-2 py-1 text-center border-[#${issueColor}] text-[#${issueColor}]`}
             primary={issue.labels[0]?.name}
           />
         )}
