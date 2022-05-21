@@ -13,7 +13,7 @@ export default function Error({ error }) {
       className="text-red-500"
     >
       <ErrorIcon />
-      <Typography className=" font-black text-xl uppercase">{error}</Typography>
+      <Typography className="text-xl font-black uppercase">{error}</Typography>
     </Stack>
   );
 }
