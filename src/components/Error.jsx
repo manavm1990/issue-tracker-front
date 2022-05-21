@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 export default function Error({ error }) {
   return (
     <Stack
-      direction="horizontal"
+      direction="row"
       alignItems="center"
       justifyContent="center"
       gap={1}
