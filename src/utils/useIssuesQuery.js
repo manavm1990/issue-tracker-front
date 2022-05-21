@@ -1,7 +1,7 @@
 import ky from "ky";
 import { useQuery } from "react-query";
 
-const BASE_URL = "https://api.github.com";
+const BASE_URL = `http://localhost:${import.meta.env.VITE_SERVER_PORT}/issues`;
 
 export default function useIssuesQuery({ owner, repo, filters = {} } = {}) {
   const getIssues = () => {
@@ -22,9 +22,7 @@ export default function useIssuesQuery({ owner, repo, filters = {} } = {}) {
 
     const filterQuery = searchParams.toString();
 
-    return ky
-      .get(`${BASE_URL}/repos/${owner}/${repo}/issues?${filterQuery}`)
-      .json();
+    return ky.get(`${BASE_URL}/${owner}/${repo}?${filterQuery}`).json();
   };
 
   return useQuery(["issues", owner, repo], getIssues);
