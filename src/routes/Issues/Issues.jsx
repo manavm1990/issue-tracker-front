@@ -28,7 +28,7 @@ export default function Issues() {
 
       {data && (
         <Grid container spacing={2}>
-          <Grid item xs={9} component="section">
+          <Grid item xs={10} component="section">
             <Typography
               variant="h4"
               component="h2"

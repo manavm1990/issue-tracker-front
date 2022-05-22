@@ -5,7 +5,7 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import { Box, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 
 export default function Issue({ issue }) {
-  const secondary = `#${issue.number} opened ${getAgo(issue.created_at)} by ${
+  const issuerInfo = `#${issue.number} opened ${getAgo(issue.created_at)} by ${
     issue.user.login
   }`;
 
@@ -13,30 +13,43 @@ export default function Issue({ issue }) {
   const issueColor = issue.labels[0]?.color;
 
   return (
-    <ListItem className="items-between my-4 rounded-md border border-solid border-gray-500/50">
-      <ListItemIcon className={isOpen ? "text-green-500" : "text-red-500"}>
-        {isOpen ? <ErrorOutline /> : <CheckCircle />}
-      </ListItemIcon>
-      <ListItemText primary={issue.title} secondary={secondary} />
+    <ListItem className="my-4 justify-between rounded-md border border-solid border-gray-500/50">
+      <Box className="flex items-center">
+        <ListItemIcon className={isOpen ? "text-green-500" : "text-red-500"}>
+          {isOpen ? <ErrorOutline /> : <CheckCircle />}
+        </ListItemIcon>
+        <ListItemText
+          primary={issue.title}
+          secondary={issuerInfo}
+          className="mr-4"
+        />
 
-      <Box class="flex items-center gap-4">
         {issueColor && (
           //  TODO: Investigate color display inconsistencies
           <ListItemText
             className={`min-w-min rounded-full border border-solid bg-[#${issueColor}]/50 px-2 py-1 text-center border-[#${issueColor}] text-[#${issueColor}]`}
             primary={issue.labels[0]?.name}
+            inset
           />
         )}
+      </Box>
+
+      <Box className="flex items-center">
+        <img
+          src={issue.user.avatar_url}
+          alt={issue.user.login}
+          className="mx-4 w-7 rounded-full"
+        />
         {issue.comments > 0 && (
-          <Box className="flex items-center">
-            <ListItemIcon className="mr-1 min-w-min">
+          <>
+            <ListItemIcon className="min-w-min">
               <ChatBubbleOutlineIcon className="relative top-0.5 text-sm text-gray-500" />
             </ListItemIcon>
             <ListItemText
               primary={issue.comments}
               className="text-sm text-gray-500"
             />
-          </Box>
+          </>
         )}
       </Box>
     </ListItem>
