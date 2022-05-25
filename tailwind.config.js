@@ -1,4 +1,7 @@
 module.exports = {
+  corePlugins: {
+        preflight: false,
+      },
   content: ["./src/**/*.jsx"],
   important: "#root",
   theme: {
