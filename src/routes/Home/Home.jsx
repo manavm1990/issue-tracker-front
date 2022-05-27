@@ -31,7 +31,7 @@ export default function Home() {
           name="owner"
           label="Owner"
           variant="outlined"
-          placeholder="@manavm1990"
+          placeholder="manavm1990"
           size="small"
         />
         <TextField
