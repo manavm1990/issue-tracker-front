@@ -1,6 +1,6 @@
 import getAgo from "@/getAgo";
 import IssueType from "@/types/Issue";
-import Label from "@components/Labels/Label/Label";
+import Label from "@components/Label/Label";
 import { CheckCircle, ErrorOutline } from "@mui/icons-material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import { Box, ListItem, ListItemIcon, ListItemText } from "@mui/material";
