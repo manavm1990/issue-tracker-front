@@ -3,6 +3,7 @@ import IssueType from "@/types/Issue";
 import { CheckCircle, ErrorOutline } from "@mui/icons-material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import { Box, ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
 
 export default function Issue({ issue }) {
   const issuerInfo = `#${issue.number} opened ${getAgo(issue.created_at)} by ${
@@ -34,12 +35,8 @@ export default function Issue({ issue }) {
         )}
       </Box>
 
-      <Box className="flex items-center">
-        <img
-          src={issue.user.avatar_url}
-          alt={issue.user.login}
-          className="mx-4 w-7 rounded-full"
-        />
+      <Box className="flex items-center gap-2">
+        <Avatar alt={issue.user.login} src={issue.user.avatar_url} />
         {issue.comments > 0 && (
           <>
             <ListItemIcon className="min-w-min">
