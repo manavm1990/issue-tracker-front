@@ -1,5 +1,6 @@
 import getAgo from "@/getAgo";
 import IssueType from "@/types/Issue";
+import Label from "@components/Labels/Label";
 import { CheckCircle, ErrorOutline } from "@mui/icons-material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import { Box, ListItem, ListItemIcon, ListItemText } from "@mui/material";
@@ -14,7 +15,7 @@ export default function Issue({ issue }) {
   const issueColor = issue.labels[0]?.color;
 
   return (
-    <ListItem className="my-4 justify-between rounded-md border border-solid border-gray-500/50">
+    <ListItem className="my-4 justify-between gap-4 rounded-md border border-solid border-gray-500/50">
       <Box className="flex items-center">
         <ListItemIcon className={isOpen ? "text-green-500" : "text-red-500"}>
           {isOpen ? <ErrorOutline /> : <CheckCircle />}
@@ -26,11 +27,10 @@ export default function Issue({ issue }) {
         />
 
         {issueColor && (
-          //  TODO: Investigate color display inconsistencies
           <ListItemText
-            className={`min-w-min rounded-full border border-solid bg-[#${issueColor}]/50 px-2 py-1 text-center border-[#${issueColor}] text-[#${issueColor}]`}
-            primary={issue.labels[0]?.name}
-            inset
+            disableTypography
+            primary={<Label label={issue.labels[0]} />}
+            className="mr-4"
           />
         )}
       </Box>
