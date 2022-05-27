@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { PropTypes } from "prop-types";
+import LabelType from "@/types/Label";
 
 export default function Label({ label }) {
   const { name, color } = label;
@@ -14,8 +14,5 @@ export default function Label({ label }) {
 }
 
 Label.propTypes = {
-  label: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired,
-  }).isRequired,
+  label: LabelType.isRequired,
 };
