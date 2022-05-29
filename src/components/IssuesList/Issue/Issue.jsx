@@ -23,7 +23,7 @@ export default function Issue({ issue }) {
         <ListItemText
           primary={issue.title}
           secondary={issuerInfo}
-          className="mr-4"
+          className="mr-4 text-yellow"
         />
 
         {issueColor && (
