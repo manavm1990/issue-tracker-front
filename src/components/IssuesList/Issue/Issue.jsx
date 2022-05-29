@@ -1,10 +1,10 @@
 import getAgo from "@/getAgo";
 import IssueType from "@/types/Issue";
-import Label from "@components/Label/Label";
 import { CheckCircle, ErrorOutline } from "@mui/icons-material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import { Box, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
+import IssueTitleLabel from "./IssueTitleLabel/IssueTitleLabel";
 
 export default function Issue({ issue }) {
   const issuerInfo = `#${issue.number} opened ${getAgo(issue.created_at)} by ${
@@ -12,31 +12,32 @@ export default function Issue({ issue }) {
   }`;
 
   const isOpen = issue.state === "open";
-  const issueColor = issue.labels[0]?.color;
 
   return (
-    <ListItem className="my-4 justify-between gap-4 rounded-md border border-solid border-gray-500/50">
+    <ListItem className="my-4 justify-between gap-4 overflow-hidden rounded-md border border-solid border-gray-500/50">
       <Box className="flex items-center">
-        <ListItemIcon className={isOpen ? "text-green-500" : "text-red-500"}>
+        <ListItemIcon
+          className={`mr-4 min-w-min ${
+            isOpen ? "text-green-500" : "text-red-500"
+          }`}
+        >
           {isOpen ? <ErrorOutline /> : <CheckCircle />}
         </ListItemIcon>
         <ListItemText
-          primary={issue.title}
+          disableTypography
+          primary={
+            <IssueTitleLabel label={issue.labels[0]} title={issue.title} />
+          }
           secondary={issuerInfo}
-          className="mr-4 text-yellow"
         />
-
-        {issueColor && (
-          <ListItemText
-            disableTypography
-            primary={<Label label={issue.labels[0]} />}
-            className="mr-4"
-          />
-        )}
       </Box>
 
       <Box className="flex items-center gap-2">
-        <Avatar alt={issue.user.login} src={issue.user.avatar_url} />
+        <Avatar
+          alt={issue.user.login}
+          src={issue.user.avatar_url}
+          className="h-6 w-6"
+        />
         {issue.comments > 0 && (
           <>
             <ListItemIcon className="min-w-min">

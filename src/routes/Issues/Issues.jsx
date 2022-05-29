@@ -42,13 +42,13 @@ export default function Issues() {
 
       {data && (
         <Grid container spacing={2}>
-          <Grid item xs={10} component="section" columnSpacing={4}>
+          <Grid item xs={8} component="section" columnSpacing={4}>
             <Typography variant="h4" component="h2" fontWeight="bold">
               Issues List{" "}
             </Typography>
             <IssuesList issues={data} />
           </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={4}>
             <LabelsList labels={getLabels(data)} />
           </Grid>
         </Grid>
